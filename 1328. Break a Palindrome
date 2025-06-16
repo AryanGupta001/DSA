@@ -1,0 +1,16 @@
+class Solution {
+    public String breakPalindrome(String palindrome) {
+        if(palindrome.length()<=1) return "";
+        StringBuilder st=new StringBuilder(palindrome);
+        boolean flag=false;
+        for(int i=0;i<st.length()/2;i++){
+            if(st.charAt(i)!='a') {
+                st.setCharAt(i,'a');
+                flag=true;
+                break;
+            }
+        }
+        if(!flag) st.setCharAt(st.length()-1,'b');
+        return st.toString();
+    }
+}
