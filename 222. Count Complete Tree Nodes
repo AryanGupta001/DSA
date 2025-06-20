@@ -1,0 +1,22 @@
+class Solution {
+    int left=0;
+    int right=0;
+    public int countNodes(TreeNode root) {
+        if(root==null) return 0;
+        left+=left(root);
+        right+=right(root);
+        if(left==right) return ((int)Math.pow(2,left))-1;
+        return 1+countNodes(root.left)+countNodes(root.right);
+    }
+    public int left (TreeNode root){
+        if(root==null) return 0;
+        int left=left(root.left);
+        return 1+left;
+    }
+    public int right (TreeNode root){
+        if(root==null) return 0;
+        int right=right(root.right);
+        return 1+right;
+
+    }
+}
