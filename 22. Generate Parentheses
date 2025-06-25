@@ -1,0 +1,17 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> arr=new ArrayList<>();
+        gen(0,0,"",n,arr);
+        return arr;
+    }
+    public void gen(int op, int cl, String s,int n,List<String> arr){
+        if(op==cl && op+cl==n*2){
+            arr.add(s);
+            return;
+        }
+        if(op<n){
+            gen(op+1,cl,s+"(",n,arr);
+        }
+        if(cl<op) gen(op,cl+1,s+")",n,arr);
+    } 
+}
