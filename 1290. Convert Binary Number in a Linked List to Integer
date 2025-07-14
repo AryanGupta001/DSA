@@ -1,0 +1,12 @@
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        StringBuilder s=new StringBuilder();
+        while(head!=null){
+            s.append((char)(head.val+'0'));
+            head=head.next;
+        }
+        System.out.println(s);
+        return Integer.parseInt(s.toString(),2);
+
+    }
+}
