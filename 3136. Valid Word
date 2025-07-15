@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isValid(String word) {
+        if (word.length()<3) return false;
+        String s="aeiouAEIOU";
+        int vowels=0;
+        int cons=0;
+        for(int i=0;i<word.length();i++){
+            if(Character.isLetter(word.charAt(i))){
+                if (s.indexOf(word.charAt(i))!=-1){
+                    vowels++;
+                }
+                else cons++;
+            }
+            else if(!Character.isDigit(word.charAt(i))){
+                return false;
+            }
+            
+        }
+        if (vowels==0 || cons==0) return false;
+        return true;
+    }
+}
