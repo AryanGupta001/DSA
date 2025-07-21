@@ -1,0 +1,24 @@
+class Solution {
+    public String makeFancyString(String s) {
+        StringBuilder ans=new StringBuilder("");
+        int count=1;
+        int prev=s.charAt(0);
+        ans.append(s.charAt(0));
+        for(int i=1;i<s.length();i++){   
+            char temp=s.charAt(i);
+            if (s.charAt(i)==prev ){
+                count++;
+                if(count<3) {
+                    ans.append(s.charAt(i));
+                }   
+            }
+            else {
+                prev=temp;
+                count=1;
+                ans.append(temp);
+            }
+        
+        }
+        return ans.toString();
+    }
+}
