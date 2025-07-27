@@ -1,0 +1,20 @@
+class Solution {
+    public int countHillValley(int[] nums) {
+        ArrayList<Integer> arr=new ArrayList<>();
+        int l=0;
+        while(l<nums.length-1){
+            if(nums[l]==nums[l+1]) l++;
+            else {
+                arr.add(nums[l]); l++;}
+        }
+        arr.add(nums[nums.length-1]);
+        int x=0,y=1,z=2,count=0;
+        while(z<arr.size()){
+            if(arr.get(x)>arr.get(y) && arr.get(y)<arr.get(z)) count++;
+            else if(arr.get(x)<arr.get(y) && arr.get(z)<arr.get(y)) count++;
+            x++;y++;z++;
+        }
+        System.out.println(arr);
+        return count;
+    }
+}
